@@ -53,10 +53,82 @@ header nav {
 
 }
 
-nav .nav-right {
+nav .nav-right,
+nav .nav-left {
   display: flex;
   align-items: center;
   gap: 24px;
+  color: #FFFFFF;
+}
+
+.nav-left i {
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+
+.nav-left i:hover {
+  color: #ff0000d0;
+}
+
+.nav-left .input {
+  visibility: hidden;
+  width: 500px;
+  position: fixed;
+  top: 94px;
+  right: 240px;
+  padding: 6px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes dropdown-enter {
+  0% {
+    transform: perspective(160px) rotateX(-90deg);
+    transform-origin: top;
+    opacity: .5;
+  }
+
+  100% {
+    visibility: visible;
+    transform: perspective(160px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes out {
+  0% {
+    transform: perspective(160px) rotateX(-90deg);
+    transform-origin: top;
+    opacity: .5;
+  }
+
+  100% {
+    visibility: visible;
+    transform: perspective(160px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.input.dropdown-enter{
+  visibility: visible;
+  animation: dropdown-enter .3s;
+}
+
+.input i {
+  color: #222;
+  font-weight: bold;
+}
+
+.input i:hover {
+  color: #222;
+}
+
+.input input {
+  width: 94%;
+  padding: 6px;
+  border: none;
 }
 
 nav .nav-menu {
@@ -68,7 +140,7 @@ nav .nav-menu {
 
 nav .link-dropdown {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   padding: 8px;
   cursor: pointer;
 }
@@ -81,25 +153,25 @@ nav .link-dropdown {
 
 .nav-menu .dropdown {
   background-color: #FFFFFF;
-  visibility: visible;
+  visibility: hidden;
   position: fixed;
   top: 94px;
-  padding: 12px;
-  transform: perspective(160px) rotateX(-90deg);
-  transform-origin: top;
-  opacity: 1;
-  transition: transform .25s cubic-bezier(0, 0, 0, 1), opacity .25s cubic-bezier(0, 0, 0, 1);
-  box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+  padding: 10px 0;
   font-size: .875rem;
 }
 
-.dropdown.active {
+.dropdown.dropdown-enter {
   visibility: visible;
-  opacity: 1;
+  animation: dropdown-enter .3s;
+}
+
+.dropdown li {
+  padding: 10px;
 }
 
 .dropdown a {
-  color: aliceblue;
+  padding: 20px 10px;
+  color: #222;
 }
 
 .dropdown a:hover {
