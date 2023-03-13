@@ -81,6 +81,7 @@ nav .nav-left {
   display: flex;
   align-items: center;
   gap: 4px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 30%);
 }
 
 @keyframes dropdown-enter {
@@ -111,7 +112,7 @@ nav .nav-left {
   }
 }
 
-.input.dropdown-enter{
+.input.dropdown-enter {
   visibility: visible;
   animation: dropdown-enter .3s;
 }
@@ -158,6 +159,7 @@ nav .link-dropdown {
   top: 94px;
   padding: 10px 0;
   font-size: .875rem;
+  box-shadow: 0 0 5px rgb(0 0 0 / 30%);
 }
 
 .dropdown.dropdown-enter {
